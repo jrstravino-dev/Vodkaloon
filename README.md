@@ -9,7 +9,7 @@ Repo: [hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT)
 
 | Layer           | Choice                                                                                      |
 | --------------- | ------------------------------------------------------------------------------------------- |
-| Editor / AI IDE | Cursor + [project rules](https://github.com/hrubix/MSX-AI-Dev-INIT/tree/main/.cursor/rules) |
+| Editor / AI IDE | [Cursor](https://cursor.com) + [project rules](https://github.com/hrubix/MSX-AI-Dev-INIT/tree/main/.cursor/rules) |
 | Framework       | [MSXgl](https://github.com/aoineko-fr/MSXgl)                                                |
 | Compiler        | SDCC                                                                                        |
 | Emulator        | [openMSX 21.0](https://openmsx.org/)                                                        |
