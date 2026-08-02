@@ -1,19 +1,19 @@
 # MSX-AI-Dev-INIT
 
-Starter project for building **MSX** software with **Cursor** (AI-assisted), **MSXgl**, **SDCC**, **openMSX**, and **mcp-openmsx**.
+Starter project for building **MSX/MSX2** software with an **AI IDE** (like Cursor AI), **MSXgl** framework, **SDCC**, **openMSX** emulator, and **mcp-openmsx**.
 
 Repo: [hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT)
 
 ## Stack
 
 
-| Layer           | Choice                                                             |
-| --------------- | ------------------------------------------------------------------ |
-| Editor / AI IDE | Cursor + project rules                                             |
-| Framework       | MSXgl                                                              |
-| Compiler        | SDCC                                                               |
-| Emulator        | openMSX 21                                                         |
-| OpenMSX MCP     | [@nataliapc/mcp-openmsx](https://github.com/nataliapc/mcp-openmsx) |
+| Layer           | Choice                                                                                      |
+| --------------- | ------------------------------------------------------------------------------------------- |
+| Editor / AI IDE | Cursor + [project rules](https://github.com/hrubix/MSX-AI-Dev-INIT/tree/main/.cursor/rules) |
+| Framework       | [MSXgl](https://github.com/aoineko-fr/MSXgl)                                                |
+| Compiler        | SDCC                                                                                        |
+| Emulator        | [openMSX 21.0](https://openmsx.org/)                                                        |
+| OpenMSX MCP     | [@nataliapc/mcp-openmsx](https://github.com/nataliapc/mcp-openmsx)                          |
 
 
 **Strengths:**
