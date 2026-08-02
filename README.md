@@ -4,6 +4,16 @@ Starter project for building **MSX** software with **Cursor** (AI-assisted), **M
 
 Repo: [hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT)
 
+## Stack
+
+| Layer | Choice |
+| --- | --- |
+| Editor / AI | Cursor + project rules |
+| Framework | MSXgl |
+| Compiler | SDCC (bundled with MSXgl on Windows) |
+| Emulator | openMSX 21 |
+| MCP | [@nataliapc/mcp-openmsx](https://github.com/nataliapc/mcp-openmsx) |
+
 ## What you get
 
 - MSX2 / PAL project layout (provisional `ROM_32K`)
@@ -34,6 +44,15 @@ Repo: [hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT)
    Output: `emul\rom\helloworld.rom`
 8. Run the smoke flow in Agent chat (or follow `tests/smoke-test.md`).
 
+## Alternative: initialize via AI prompt
+
+Instead of the manual steps, point any AI coding agent at this repo:
+
+> Initialize a new MSX project based on
+> https://github.com/hrubix/MSX-AI-Dev-INIT — replicate its structure, rules,
+> config templates, and MSXgl/SDCC/openMSX build setup. Ask me for project name,
+> target machine, ROM/mapper format, and PAL/NTSC timing before the first build.
+
 ### helloworld demo
 
 - Prints `Hi, I'm your MSX AI Development stack`
@@ -41,16 +60,6 @@ Repo: [hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT)
 - SPACE → `Bye!` and CPU halt (a cart ROM cannot quit the openMSX process; close the window on the host)
 
 Sample binary (optional): `samples/helloworld.rom`
-
-## Stack
-
-| Layer | Choice |
-| --- | --- |
-| Editor / AI | Cursor + project rules |
-| Framework | MSXgl |
-| Compiler | SDCC (bundled with MSXgl on Windows) |
-| Emulator | openMSX 21 |
-| MCP | [@nataliapc/mcp-openmsx](https://github.com/nataliapc/mcp-openmsx) |
 
 ## Docs
 
