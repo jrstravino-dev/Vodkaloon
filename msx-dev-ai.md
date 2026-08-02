@@ -179,10 +179,3 @@ Document important hardware assumptions, including:
 - PAL or NTSC timing assumptions
 - BIOS or MSX-DOS dependencies
 
-## MSX development knowledge
-
-- [Programming](https://www.msx.org/wiki/Category:Programming)
-- [Graphics](https://www.msx.org/wiki/Category:Graphics)
-- [Music](https://www.msx.org/wiki/Category:Music)
-- [Game Design](https://www.msx.org/wiki/Game_Design)
-- [Hardware Design](https://www.msx.org/wiki/Hardware_Design)

@@ -1,0 +1,21 @@
+---
+description: Authoritative MSX2 hardware/technical reference sources
+alwaysApply: true
+---
+
+# MSX2 reference sources
+
+Consult these as primary technical references for MSX2 hardware, BIOS, VDP, I/O, and system behavior:
+
+- **MSX Technical Data Book** — https://download.file-hunter.com/Manuals/msx_technical_data_book.pdf
+  - Local copy: `C:\Users\rubik\.cursor\projects\d-Projects-MSX-Dev-Cursor-INIT/uploads/msx_technical_data_book.pdf-0.md`
+- **MSX2 Technical Handbook** (Konamiman, markdown) — https://github.com/Konamiman/MSX2-Technical-Handbook
+  - Covers: system overview, BASIC, MSX-DOS, VDP/display, BIOS peripheral access, BIOS listing, MATH-PACK, bit-block transfer, work area, VRAM map, I/O map, cartridge hardware, control codes, character set.
+- **MSX Wiki** — community reference for programming, hardware, graphics, music, and design:
+  - Programming — https://www.msx.org/wiki/Category:Programming
+  - Graphics — https://www.msx.org/wiki/Category:Graphics
+  - Music — https://www.msx.org/wiki/Category:Music
+  - Game Design — https://www.msx.org/wiki/Game_Design
+  - Hardware Design — https://www.msx.org/wiki/Hardware_Design
+
+Prefer these over recalled details when they conflict; cite the specific chapter/appendix when relevant.
