@@ -31,7 +31,16 @@ Repo: [hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT)
 - `helloworld` demo ROM source (`src/main.c`)
 - Windows helper to launch openMSX from mcp-openmsx (`tools/openmsx-mcp-launcher.*`)
 
-## Quick start (Windows 11)
+## Quick start (AI way-of-working)
+
+Point any AI coding agent at this repo, for example with a prompt like:
+
+> Initialize a new MSX project based on
+> [https://github.com/hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT) — replicate its structure, rules,
+> config templates, and MSXgl/SDCC/openMSX build setup. Ask me for project name,
+> target machine, ROM/mapper format, and PAL/NTSC timing before the first build.
+
+## Classic Quick start (Windows 11)
 
 1. **Clone** this repo (path without spaces recommended).
 2. **Clone MSXgl** into the project root:
@@ -53,15 +62,6 @@ Repo: [hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT)
   ```
    Output: `emul\rom\helloworld.rom`
 8. Run the smoke flow in Agent chat (or follow `tests/smoke-test.md`).
-
-## Alternative: initialize via AI prompt
-
-Instead of the manual steps, point any AI coding agent at this repo, for example with a prompt like:
-
-> Initialize a new MSX project based on
-> [https://github.com/hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT) — replicate its structure, rules,
-> config templates, and MSXgl/SDCC/openMSX build setup. Ask me for project name,
-> target machine, ROM/mapper format, and PAL/NTSC timing before the first build.
 
 ### About simple helloworld demo
 
