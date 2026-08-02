@@ -17,5 +17,11 @@ Consult these as primary technical references for MSX2 hardware, BIOS, VDP, I/O,
   - Music — https://www.msx.org/wiki/Category:Music
   - Game Design — https://www.msx.org/wiki/Game_Design
   - Hardware Design — https://www.msx.org/wiki/Hardware_Design
+- **MSX BIOS calls list** (Grauw) — https://map.grauw.nl/resources/msxbios.php
+  - Local copy: `C:\Users\rubik\.cursor\projects\d-Projects-MSX-Dev-Cursor-INIT/uploads/msxbios.php-0.md`
+- **MSX system variables** (Grauw) — https://map.grauw.nl/resources/msxsystemvars.php
+  - Local copy: `C:\Users\rubik\.cursor\projects\d-Projects-MSX-Dev-Cursor-INIT/uploads/msxsystemvars.php-0.md`
+- **openMSX user manual** — https://openmsx.org/manual/user.html
+  - Local copy: `C:\Users\rubik\.cursor\projects\d-Projects-MSX-Dev-Cursor-INIT/uploads/user-0.html`
 
 Prefer these over recalled details when they conflict; cite the specific chapter/appendix when relevant.
