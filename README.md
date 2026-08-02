@@ -7,13 +7,13 @@ Repo: [hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT)
 ## Stack
 
 
-| Layer       | Choice                                                             |
-| ----------- | ------------------------------------------------------------------ |
-| Editor / AI | Cursor + project rules                                             |
-| Framework   | MSXgl                                                              |
-| Compiler    | SDCC (bundled with MSXgl on Windows)                               |
-| Emulator    | openMSX 21                                                         |
-| MCP         | [@nataliapc/mcp-openmsx](https://github.com/nataliapc/mcp-openmsx) |
+| Layer           | Choice                                                             |
+| --------------- | ------------------------------------------------------------------ |
+| Editor / AI IDE | Cursor + project rules                                             |
+| Framework       | MSXgl                                                              |
+| Compiler        | SDCC                                                               |
+| Emulator        | openMSX 21                                                         |
+| OpenMSX MCP     | [@nataliapc/mcp-openmsx](https://github.com/nataliapc/mcp-openmsx) |
 
 
 **Strengths:**
@@ -63,7 +63,7 @@ Instead of the manual steps, point any AI coding agent at this repo, for example
 > config templates, and MSXgl/SDCC/openMSX build setup. Ask me for project name,
 > target machine, ROM/mapper format, and PAL/NTSC timing before the first build.
 
-### helloworld demo
+### About simple helloworld demo
 
 - Prints `Hi, I'm your MSX AI Development stack`
 - Then `Press SPACE to exit`
@@ -79,6 +79,6 @@ Sample binary (optional): `samples/helloworld.rom`
 
 ## License notes
 
-- This template: use freely; attribute appreciated.
+- This template is released into the public domain under [The Unlicense](https://unlicense.org) — use it for anything, commercial or private, no restrictions and no attribution required. Attribution to [rubikonlab.com](https://rubikonlab.com) is appreciated but not obligatory.
 - **MSXgl**, **openMSX**, **C-BIOS**, and **mcp-openmsx** keep their own licenses — clone/install them separately.
 
