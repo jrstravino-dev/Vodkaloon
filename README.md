@@ -7,13 +7,13 @@ Repo: [hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT)
 ## Stack
 
 
-| Layer           | Choice                                                                                      |
-| --------------- | ------------------------------------------------------------------------------------------- |
+| Layer           | Choice                                                                                                            |
+| --------------- | ----------------------------------------------------------------------------------------------------------------- |
 | Editor / AI IDE | [Cursor](https://cursor.com) + [project rules](https://github.com/hrubix/MSX-AI-Dev-INIT/tree/main/.cursor/rules) |
-| Framework       | [MSXgl](https://github.com/aoineko-fr/MSXgl)                                                |
-| Compiler        | SDCC                                                                                        |
-| Emulator        | [openMSX 21.0](https://openmsx.org/)                                                        |
-| OpenMSX MCP     | [@nataliapc/mcp-openmsx](https://github.com/nataliapc/mcp-openmsx)                          |
+| Framework       | [MSXgl](https://github.com/aoineko-fr/MSXgl)                                                                      |
+| Compiler        | SDCC                                                                                                              |
+| Emulator        | [openMSX 21.0](https://openmsx.org/)                                                                              |
+| OpenMSX MCP     | [@nataliapc/mcp-openmsx](https://github.com/nataliapc/mcp-openmsx)                                                |
 
 
 **Strengths:**
@@ -35,10 +35,11 @@ Repo: [hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT)
 
 Point any AI coding agent at this repo, for example with a prompt like:
 
-> Initialize a new MSX project based on
-> [https://github.com/hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT) — replicate its structure, rules,
-> config templates, and MSXgl/SDCC/openMSX build setup. Ask me for project name,
-> target machine, ROM/mapper format, and PAL/NTSC timing before the first build.
+> Bootstrap a new MSX project from [https://github.com/hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT): read its README and .cursor/rules/* and follow them, ask me for project name/machine/timing/ROM format, then create a buildable project from the template. Ask me about anything unclear instead of guessing.
+
+To install all project requirements, example prompt:
+
+> Set up the MSX stack for [https://github.com/hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT) on my machine. Detect my OS first and use its native package manager where possible. Install Git, Node.js LTS, openMSX 21 + C-BIOS ROMs, and mcp-openmsx (npm i -g @nataliapc/mcp-openmsx). Clone MSXgl into the repo root, fix the SDCC cc1 binary if missing, copy the MCP config template (.cursor/mcp.json.example) to .cursor/mcp.json and set local paths. Verify with the project build. Show commands first and ask me about anything unclear instead of guessing.
 
 ## Classic Quick start (Windows 11)
 
