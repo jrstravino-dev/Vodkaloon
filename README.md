@@ -28,12 +28,26 @@ Repo: [hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT)
 >
 > IDE → LLM → [SjASMPlus](https://github.com/sjasmplus/sjasmplus) or [Glass](https://www.grauw.nl/projects/glass/) → mcp-openMSX → openMSX).
 
+
+
+
+
+
+
+## Plan mode & OpenSpec
+
+**Tip:** Start with your IDE’s Plan Mode to create a clear, reviewable checklist before any code is written. For example: “Create a plan for a simple MSX1-style Snake game. Ask me questions to clarify the requirements and improve the plan before implementation.”
+
+For larger projects with complex or evolving requirements, consider using [OpenSpec](https://openspec.dev/). OpenSpec is a structured workflow for defining and maintaining specifications, including requirements, design decisions, implementation tasks, and proposed changes.
+
 ## What you get
 
 - MSX2 project layout (provisional `ROM_32K`)
 - [Cursor rules](https://github.com/hrubix/MSX-AI-Dev-INIT/tree/main/.cursor/rules) + MCP config template for openMSX automation
 - `helloworld` demo ROM source (`src/main.c`)
 - Windows helper to launch openMSX from mcp-openmsx (`tools/openmsx-mcp-launcher.*`)
+
+
 
 ## Quick start (AI way-of-working)
 
@@ -44,6 +58,8 @@ Point any AI coding agent at this repo, for example with a prompt like:
 To install all project requirements, example prompt:
 
 > Set up the MSX stack for [https://github.com/hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT) on my machine. Detect my OS first and use its native package manager where possible. Install Git, Node.js LTS, openMSX 21 + C-BIOS ROMs, and mcp-openmsx (npm i -g @nataliapc/mcp-openmsx). Clone MSXgl into the repo root, fix the SDCC cc1 binary if missing, copy the MCP config template (.cursor/mcp.json.example) to .cursor/mcp.json and set local paths. Verify with the project build. Show commands first and ask me about anything unclear instead of guessing.
+
+
 
 ## Classic Quick start (Windows 11)
 
@@ -68,18 +84,24 @@ To install all project requirements, example prompt:
    Output: `emul\rom\helloworld.rom`
 8. Run the smoke flow in Agent chat (or follow `tests/smoke-test.md`).
 
+
+
 ### About simple helloworld demo
 
 - Load `emul/rom/helloworld.rom` into your favorite MSX emulator and boot
 - Prints `Hi, I'm your MSX AI Development stack`
 - Then `Press SPACE to exit`
-- SPACE → `Bye!` 
+- SPACE → `Bye!`
+
+
 
 ## Docs
 
 - [docs/project-requirements.md](docs/project-requirements.md) — install checklist
 - [msx-dev-ai.md](msx-dev-ai.md) — AI/dev workflow
 - [tests/smoke-test.md](tests/smoke-test.md) — emulator smoke procedure
+
+
 
 ## License notes
 
