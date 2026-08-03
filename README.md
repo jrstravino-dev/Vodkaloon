@@ -24,6 +24,10 @@ Repo: [hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT)
 - Performance-sensitive routines can still be implemented in assembly!
 - openMSX MCP allows the AI agent to launch and control the emulator and automate testing.
 
+> **Note:** If you are considering an assembly-only stack for projects that require maximum control over the MSX hardware, a possible workflow would be:
+>
+> IDE → LLM → [SjASMPlus](https://github.com/sjasmplus/sjasmplus) or [Glass](https://www.grauw.nl/projects/glass/) → mcp-openMSX → openMSX.
+
 ## What you get
 
 - MSX2 project layout (provisional `ROM_32K`)
