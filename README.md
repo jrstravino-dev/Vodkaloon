@@ -70,12 +70,10 @@ To install all project requirements, example prompt:
 
 ### About simple helloworld demo
 
-- Load `emul/rom/helloworld.rom` into your favorite MSX emulator
+- Load `emul/rom/helloworld.rom` into your favorite MSX emulator and boot
 - Prints `Hi, I'm your MSX AI Development stack`
 - Then `Press SPACE to exit`
-- SPACE → `Bye!` and CPU halt (a cart ROM cannot quit the openMSX process; close the window on the host)
-
-Sample binary (optional): `samples/helloworld.rom`
+- SPACE → `Bye!` 
 
 ## Docs
 
