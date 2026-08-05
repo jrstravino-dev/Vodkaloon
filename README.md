@@ -28,7 +28,7 @@ Repo: [hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT)
 >
 > IDE → LLM → [SjASMPlus](https://github.com/sjasmplus/sjasmplus) or [Glass](https://www.grauw.nl/projects/glass/) → mcp-openMSX → openMSX).
 >
-> Check the Example page for more AI stack setups
+> Check the [Example page](examples.md) for more AI stack setups
 
 
 
