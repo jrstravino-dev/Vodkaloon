@@ -30,10 +30,6 @@ Repo: [hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT)
 
 
 
-
-
-
-
 ## Plan mode & OpenSpec
 
 **Tip:** Start with your IDE’s Plan Mode to create a clear, reviewable checklist before any code is written. For example: “Create a plan for a simple MSX1-style Snake game. Ask me questions to clarify the requirements and improve the plan before implementation.”
@@ -49,40 +45,17 @@ For larger projects with complex or evolving requirements, consider using [OpenS
 
 
 
-## Quick start (AI way-of-working)
+## Quick start
 
-Point any AI coding agent at this repo, for example with a prompt like:
+Point any AI coding agent at this repo. Example prompts:
 
-> Bootstrap a new MSX project from [https://github.com/hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT): read its README and .cursor/rules/* and follow them, ask me for project name/machine/timing/ROM format, then create a buildable project from the template. Ask me about anything unclear instead of guessing.
-
-To install all project requirements, example prompt:
+**Install all project requirements:**
 
 > Set up the MSX stack for [https://github.com/hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT) on my machine. Detect my OS first and use its native package manager where possible. Install Git, Node.js LTS, openMSX 21 + C-BIOS ROMs, and mcp-openmsx (npm i -g @nataliapc/mcp-openmsx). Clone MSXgl into the repo root, fix the SDCC cc1 binary if missing, copy the MCP config template (.cursor/mcp.json.example) to .cursor/mcp.json and set local paths. Verify with the project build. Show commands first and ask me about anything unclear instead of guessing.
 
+**Bootstrap a new project:**
 
-
-## Classic Quick start (Windows 11)
-
-1. **Clone** this repo (path without spaces recommended).
-2. **Clone MSXgl** into the project root:
-  ```bat
-   git clone https://github.com/aoineko-fr/MSXgl.git MSXgl
-  ```
-3. If SDCC fails with a strange `cc1` error, copy:
-  `MSXgl\tools\sdcc\bin\cc1` → `MSXgl\tools\sdcc\bin\cc1.exe`
-4. **Install** [openMSX](https://openmsx.org/), [Node.js LTS](https://nodejs.org/), and C-BIOS ROMs into your openMSX `systemroms` pool (see `docs/project-requirements.md`).
-5. Copy MCP config and edit paths:
-  ```bat
-   copy .cursor\mcp.json.example .cursor\mcp.json
-  ```
-   Set `OPENMSX_SHARE_DIR`, screenshot/replay dirs, and keep `OPENMSX_EXECUTABLE` pointed at `tools\openmsx-mcp-launcher.exe`.
-6. Enable **mcp-openmsx** in Cursor: `Ctrl+Shift+J` → **Tools & MCP**.
-7. **Build**:
-  ```bat
-   build.bat
-  ```
-   Output: `emul\rom\helloworld.rom`
-8. Run the smoke flow in Agent chat (or follow `tests/smoke-test.md`).
+> Bootstrap a new MSX project from [https://github.com/hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT): read its README and .cursor/rules/* and follow them, ask me for project name/machine/timing/ROM format, then create a buildable project from the template. Ask me about anything unclear instead of guessing.
 
 
 
@@ -95,9 +68,14 @@ To install all project requirements, example prompt:
 
 
 
+## Examples
+
+A few MSX titles built with AI — demos and small games you can load in openMSX. See [examples.md](examples.md) for the list and how to try them.
+
 ## Docs
 
-- [docs/project-requirements.md](docs/project-requirements.md) — install checklist
+- [docs/project-requirements.md](docs/project-requirements.md) — tools and dependencies overview
+- [examples.md](examples.md) — sample ROMs built with AI
 - [msx-dev-ai.md](msx-dev-ai.md) — AI/dev workflow
 - [tests/smoke-test.md](tests/smoke-test.md) — emulator smoke procedure
 
