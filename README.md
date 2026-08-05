@@ -27,6 +27,8 @@ Repo: [hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT)
 > **(Note:** If you are considering an assembly-only stack for projects that require maximum control over the MSX hardware, a possible workflow would be:
 >
 > IDE → LLM → [SjASMPlus](https://github.com/sjasmplus/sjasmplus) or [Glass](https://www.grauw.nl/projects/glass/) → mcp-openMSX → openMSX).
+>
+> Check the Example page for more AI stack setups
 
 
 
@@ -42,8 +44,6 @@ For larger projects with complex or evolving requirements, consider using [OpenS
 - [Cursor rules](https://github.com/hrubix/MSX-AI-Dev-INIT/tree/main/.cursor/rules) + MCP config template for openMSX automation
 - `helloworld` demo ROM source (`src/main.c`)
 - Windows helper to launch openMSX from mcp-openmsx (`tools/openmsx-mcp-launcher.*`)
-
-
 
 ## Quick start
 
@@ -66,11 +66,9 @@ Point any AI coding agent at this repo. Example prompts:
 - Then `Press SPACE to exit`
 - SPACE → `Bye!`
 
-
-
 ## Examples
 
-A few MSX titles built with AI — demos and small games you can load in openMSX. See [examples.md](examples.md) for the list and how to try them.
+A few MSX titles built with AI — demos and small games you can load in openMSX. Check the [Example page](examples.md) for more AI stack setups and how to try them.
 
 ## Docs
 
@@ -78,8 +76,6 @@ A few MSX titles built with AI — demos and small games you can load in openMSX
 - [examples.md](examples.md) — sample ROMs built with AI
 - [msx-dev-ai.md](msx-dev-ai.md) — AI/dev workflow
 - [tests/smoke-test.md](tests/smoke-test.md) — emulator smoke procedure
-
-
 
 ## License notes
 
