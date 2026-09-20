@@ -82,6 +82,7 @@ A few MSX titles built with AI — demos and small games you can load in openMSX
 
 ## Docs
 
+- [docs/vodkaloon-game.md](docs/vodkaloon-game.md) — premissa, regras, rounds, VDP/áudio e como continuar
 - [docs/project-requirements.md](docs/project-requirements.md) — tools and dependencies overview
 - [examples.md](examples.md) — sample ROMs built with AI
 - [msx-dev-ai.md](msx-dev-ai.md) — AI/dev workflow

@@ -34,6 +34,8 @@ Setup is handled via your AI IDE — see the install prompt in [README.md](../RE
 | Audio | PSG opening (Knightmare-style 3/4 homage) + in-game loop + SFX |
 | Hardware validation | openMSX only |
 
+Game design and current playable state: [vodkaloon-game.md](vodkaloon-game.md).
+
 Do not change compiler, framework, machine, or `ROM_32K` unless the task explicitly requires it.
 
 ---
