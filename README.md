@@ -1,8 +1,8 @@
-# MSX-AI-Dev-INIT
+# Vodkaloon
 
-Starter project for building **MSX/MSX2** software with an **AI IDE** (like Cursor AI), **MSXgl** framework, **SDCC**, **openMSX** emulator, and **mcp-openmsx**.
+**Vodkaloon** é um exemplo / demo de um jogo de 8 bits para **MSX2**, produzido com ferramentas de IA.
 
-Repo: [hrubix/MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT)
+Feito com [MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT) (Cursor, MSXgl, SDCC, openMSX).
 
 ## Stack
 
@@ -63,6 +63,8 @@ Point any AI coding agent at this repo. Example prompts:
 
 ### About Vodkaloon
 
+Demo jogável de um título MSX2 feito com IA, usando [MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT).
+
 - Play in browser (MSX2 PAL): [WebMSX](https://webmsx.org/?MACHINE=MSX2E&ROM=https://github.com/jrstravino-dev/Vodkaloon/raw/main/samples/Vodkaloon.rom)
 - Local: `samples/Vodkaloon.rom` or `emul/rom/Vodkaloon.rom` in openMSX (C-BIOS MSX2, PAL)
 - Zelina Games → título (`SCORE`/`HI`) → briefing → taxi → 3 rounds
@@ -85,6 +87,6 @@ A few MSX titles built with AI — demos and small games you can load in openMSX
 
 ## License notes
 
-- This template is released into the public domain under [The Unlicense](https://unlicense.org) — use it for anything, commercial or private, no restrictions and no attribution required. Attribution to [rubikonlab.com](https://rubikonlab.com) is appreciated but not obligatory.
+- [MSX-AI-Dev-INIT](https://github.com/hrubix/MSX-AI-Dev-INIT) is public domain ([The Unlicense](https://unlicense.org)).
 - **MSXgl**, **openMSX**, **C-BIOS**, and **mcp-openmsx** keep their own licenses — clone/install them separately.
 
