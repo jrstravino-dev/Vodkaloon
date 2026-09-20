@@ -14,18 +14,20 @@ ASSETS = ROOT / "assets"
 GENERATED = ROOT / "generated"
 
 PPQ = 480
-BPM = 120
-TEMPO = 500000  # 120 BPM
+BPM = 150
+TEMPO = 400000  # 150 BPM, 3/4 eighths
 STEP_TICKS = PPQ // 2  # eighth note
-MSX_STEP_FRAMES = 12  # ~125 BPM at 50 Hz PAL
+MSX_STEP_FRAMES = 8  # ~188 BPM-eighth feel at 50 Hz PAL
 PSG_CLOCK = 111860.8
 
 NOTE = {
     "R": 0,
-    "D2": 38, "E2": 40, "F2": 41, "G2": 43, "A2": 45, "Bb2": 46, "C3": 48,
-    "D3": 50, "E3": 52, "F3": 53, "G3": 55, "A3": 57, "Bb3": 58, "C4": 60,
-    "D4": 62, "E4": 64, "F4": 65, "G4": 67, "A4": 69, "Bb4": 70, "C5": 72, "D5": 74,
-    "A1": 33, "Bb1": 34, "C2": 36, "E1": 28, "F1": 29, "G1": 31,
+    "E1": 28, "F1": 29, "G1": 31, "A1": 33, "Bb1": 34, "B1": 35,
+    "C2": 36, "D2": 38, "E2": 40, "F2": 41, "F#2": 42, "G2": 43,
+    "A2": 45, "Bb2": 46, "B2": 47, "C3": 48, "D3": 50, "E3": 52,
+    "F3": 53, "F#3": 54, "G3": 55, "A3": 57, "Bb3": 58, "B3": 59,
+    "C4": 60, "D4": 62, "E4": 64, "F4": 65, "F#4": 66, "G4": 67,
+    "A4": 69, "Bb4": 70, "B4": 71, "C5": 72, "D5": 74,
 }
 
 
@@ -33,78 +35,78 @@ def parse_line(text: str) -> list[int]:
     return [NOTE[tok] for tok in text.replace("|", " ").split()]
 
 
-# 8 bars x 8 eighths = 64 steps
+# 8 bars x 6 eighths = 48 steps in 3/4 (Knightmare-like waltz, original notes)
 FANFARE_A = parse_line(
     """
-    D4 D4 D4 D4 F4 F4 A4 A4
-    D5 D5 D5 D5 C5 C5 Bb4 Bb4
-    A4 A4 F4 F4 G4 G4 A4 A4
-    D5 D5 D5 D5 D5 D5 D5 R
-    A4 A4 A4 A4 Bb4 Bb4 C5 C5
-    D5 D5 C5 C5 Bb4 Bb4 A4 A4
-    G4 G4 F4 F4 E4 E4 F4 F4
-    D4 D4 D4 D4 D4 R R R
+    E4 R G4 B4 R R
+    E4 G4 B4 C5 B4 A4
+    G4 B4 D5 C5 B4 A4
+    B4 R B4 C5 D5 R
+    E4 G4 B4 A4 G4 F#4
+    E4 R E4 G4 B4 R
+    C5 B4 A4 G4 F#4 E4
+    E4 E4 B3 B3 E4 R
     """
 )
 FANFARE_B = parse_line(
     """
-    D3 A3 D3 A3 D3 A3 D3 A3
-    D3 A3 D3 A3 C3 G3 C3 G3
-    Bb2 F3 Bb2 F3 A2 E3 A2 E3
-    D3 A3 D3 A3 D3 A3 D3 A3
-    F3 C4 F3 C4 G3 D4 G3 D4
-    A3 E4 A3 E4 F3 C4 F3 C4
-    G3 D4 G3 D4 A3 E4 A3 E4
-    D3 A3 D3 A3 D3 R R R
+    R E3 R B3 R R
+    R G3 R E3 R G3
+    R G3 R D3 R G3
+    R B3 R G3 R B3
+    R E3 R B3 R E3
+    R E3 R G3 R B3
+    R A3 R F#3 R A3
+    R E3 R B3 R E3
     """
 )
 FANFARE_C = parse_line(
     """
-    D2 D2 D2 D2 A1 A1 A1 A1
-    D2 D2 D2 D2 C2 C2 C2 C2
-    Bb1 Bb1 Bb1 Bb1 F1 F1 F1 F1
-    A1 A1 A1 A1 D2 D2 D2 D2
-    D2 D2 D2 D2 A1 A1 A1 A1
-    C2 C2 C2 C2 A1 A1 A1 A1
-    Bb1 Bb1 G1 G1 A1 A1 A1 A1
-    D2 D2 D2 D2 D2 R R R
+    E2 E2 E2 B1 B1 B1
+    E2 E2 E2 B1 B1 B1
+    G2 G2 G2 D2 D2 D2
+    B1 B1 B1 E2 E2 E2
+    E2 E2 E2 B1 B1 B1
+    E2 E2 E2 G1 G1 G1
+    A1 A1 A1 E1 E1 E1
+    E2 E2 E2 E2 E2 R
     """
 )
 
 LOOP_A = parse_line(
     """
-    D4 R F4 G4 A4 R G4 F4
-    E4 R F4 E4 D4 R C4 R
-    Bb3 R D4 F4 E4 R D4 C4
-    A3 R R C4 E4 D4 R R
-    F4 E4 D4 C4 Bb3 A3 G3 F3
-    G3 A3 Bb3 C4 D4 R C4 Bb3
-    A3 R C4 E4 D4 C4 Bb3 A3
-    D4 R A3 R D4 R R R
+    G4 A4 B4 C5 B4 A4
+    G4 F#4 E4 F#4 G4 A4
+    B4 C5 D5 C5 B4 A4
+    G4 A4 F#4 E4 R R
+    B4 R D5 C5 B4 A4
+    G4 A4 B4 A4 G4 F#4
+    E4 G4 A4 B4 C5 B4
+    A4 G4 F#4 E4 E4 R
     """
 )
 LOOP_B = parse_line(
     """
-    D3 F3 A3 F3 D3 F3 A3 F3
-    D3 F3 A3 F3 D3 F3 A3 F3
-    Bb2 D3 F3 D3 Bb2 D3 F3 D3
-    Bb2 D3 F3 D3 Bb2 D3 F3 D3
-    C3 E3 G3 E3 C3 E3 G3 E3
-    A2 C3 E3 C3 A2 C3 E3 C3
-    D3 F3 A3 F3 Bb2 D3 F3 D3
-    A2 C3 E3 C3 D3 A3 D3 R
+    R E3 R G3 R B3
+    R E3 R F#3 R A3
+    R G3 R B3 R D4
+    R E3 R F#3 R R
+    R G3 R B3 R D4
+    R E3 R G3 R A3
+    R E3 R G3 R A3
+    R E3 R F#3 R E3
     """
 )
 LOOP_C = parse_line(
     """
-    D2 D2 D2 D2 D2 D2 A1 A1
-    D2 D2 D2 D2 D2 D2 A1 A1
-    Bb1 Bb1 Bb1 Bb1 F1 F1 F1 F1
-    Bb1 Bb1 Bb1 Bb1 F1 F1 F1 F1
-    C2 C2 C2 C2 G1 G1 G1 G1
-    A1 A1 A1 A1 E1 E1 A1 A1
-    D2 D2 D2 D2 Bb1 Bb1 Bb1 Bb1
-    A1 A1 A1 A1 D2 D2 D2 R
+    E2 E2 E2 B1 B1 B1
+    E2 E2 E2 B1 B1 B1
+    G2 G2 G2 D2 D2 D2
+    E2 E2 E2 B1 B1 B1
+    G2 G2 G2 D2 D2 D2
+    E2 E2 E2 B1 B1 B1
+    A1 A1 A1 E2 E2 E2
+    E2 E2 E2 B1 B1 E2
     """
 )
 
@@ -122,7 +124,7 @@ for name, seq in (
     ("LOOP_B", LOOP_B),
     ("LOOP_C", LOOP_C),
 ):
-    assert_len(name, seq, 64)
+    assert_len(name, seq, 48)
 
 
 def vlq(value: int) -> bytes:
@@ -207,8 +209,8 @@ def write_header(path: Path) -> None:
 #define MUSIC_NOTE_MIN      {lo}
 #define MUSIC_NOTE_MAX      {hi}
 #define MUSIC_STEP_FRAMES   {MSX_STEP_FRAMES}
-#define MUSIC_FANFARE_LEN   64
-#define MUSIC_LOOP_LEN      64
+#define MUSIC_FANFARE_LEN   {len(FANFARE_A)}
+#define MUSIC_LOOP_LEN      {len(LOOP_A)}
 
 static const u16 g_MusicPeriod[] = {{ {periods} }};
 

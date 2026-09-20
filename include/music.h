@@ -13,4 +13,3 @@ void Sfx_TypeClick(u8 volume);
 void Sfx_Pop(void);
 void Sfx_Score(void);
 void Sfx_Cloud(void);
-void Sfx_Taxi(void);

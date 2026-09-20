@@ -110,8 +110,13 @@ static void PlayOpening(void)
 	Print_SetBitmapFont(g_Font_MGL_Sample6);
 	Print_SetColor(COLOR_WHITE, COLOR_BLACK);
 	Print_DrawTextAt(104, 132, "PRESENTS");
+	Print_DrawTextAt(59, 176, "2026");
+	Print_DrawTextAt(89, 176, "BY");
+	Print_DrawTextAt(107, 176, "JUNIOR");
+	Print_DrawTextAt(149, 176, "STRAVINO");
 
 	ShineLogo();
+	WaitFrames(240);
 }
 
 static void DrawNum6(u8 x, u8 y, u16 n)
@@ -130,6 +135,24 @@ static void DrawNum6(u8 x, u8 y, u16 n)
 		Print_DrawChar((c8)('0' + d[i]));
 }
 
+static void SetTitlePalette(void)
+{
+	VDP_SetPaletteEntry(0, RGB16(0, 0, 0));
+	VDP_SetPaletteEntry(1, RGB16(0, 0, 0));
+	VDP_SetPaletteEntry(10, RGB16(7, 6, 1));
+	VDP_SetPaletteEntry(14, RGB16(7, 7, 7));
+	VDP_SetPaletteEntry(15, RGB16(7, 7, 7));
+}
+
+static void DrawPushKey(bool show)
+{
+	Print_SetBitmapFont(g_Font_MGL_Sample6);
+	Print_SetColor(show ? 15 : 10, 0);
+	Print_DrawTextAt(72, 160, "PUSH");
+	Print_DrawTextAt(100, 160, "SPACE");
+	Print_DrawTextAt(136, 160, "KEY");
+}
+
 /* 0 = start game, 1 = attract. */
 static u8 PlayTitle(void)
 {
@@ -138,24 +161,29 @@ static u8 PlayTitle(void)
 	VDP_EnableSprite(FALSE);
 	VDP_CommandHMMV(0, 0, 256, 212, 0);
 	VDP_CommandWait();
-	SetLogoPalette();
+	SetTitlePalette();
 	Music_Init();
 
 	Print_SetBitmapFont(g_Font_MGL_Sample6);
-	Print_SetColor(COLOR_WHITE, COLOR_BLACK);
+	Print_SetColor(10, 0);
+	Print_DrawTextAt(93, 49, "VODKALOON");
+	Print_SetColor(15, 0);
 	Print_DrawTextAt(92, 48, "VODKALOON");
-	Print_DrawTextAt(80, 64, "starring Hector");
+	Print_DrawTextAt(80, 64, "starring");
+	Print_DrawTextAt(132, 64, "Hector");
 	Print_DrawTextAt(40, 104, "SCORE");
 	DrawNum6(80, 104, Game_GetScore());
 	Print_DrawTextAt(40, 120, "HI");
 	DrawNum6(80, 120, Game_GetHiScore());
-	Print_DrawTextAt(80, 176, "PRESSIONE ESPACO");
+	DrawPushKey(TRUE);
 
 	WaitKeyState(KEY_SPACE, FALSE, 8);
 	for (t = 0; t < 900; ++t)
 	{
 		Music_Tick();
 		Halt();
+		if ((t & 15) == 0)
+			DrawPushKey((t & 16) == 0);
 		if (Keyboard_IsKeyPressed(KEY_SPACE))
 		{
 			WaitKeyState(KEY_SPACE, FALSE, 8);

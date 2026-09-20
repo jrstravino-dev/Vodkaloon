@@ -12,51 +12,82 @@
 #define MUSIC_MODE_GAME		1
 #define MUSIC_MODE_WIN		2
 #define MUSIC_MODE_LOSE		3
-#define MUSIC_GAME_STEP		9
-#define MUSIC_WIN_STEP		12
-#define MUSIC_LOSE_STEP		18
-#define MUSIC_WIN_LEN		16
-#define MUSIC_LOSE_LEN		16
+#define MUSIC_OPEN_STEP		8
+#define MUSIC_GAME_STEP		8
+#define MUSIC_WIN_STEP		10
+#define MUSIC_LOSE_STEP		14
+#define MUSIC_WIN_LEN		12
+#define MUSIC_LOSE_LEN		12
+#define MUSIC_STAGE_LEN		32
 
-/* Konami-style stage clear (Knightmare / TwinBee). */
-static const u8 g_MusicWin[][3] =
+/* In-game: 32-step ostinato (lead + arp + plucked bass). */
+static const u8 g_MusicStage[][3] =
 {
 	{ 62, 50, 38 },
+	{ 65, 53, 38 },
+	{ 69, 57, 33 },
+	{  0, 53, 33 },
+	{ 74, 50, 38 },
+	{  0, 53, 38 },
+	{ 69, 57, 33 },
+	{ 65, 53, 33 },
+	{ 67, 48, 36 },
+	{ 69, 52, 36 },
+	{ 70, 55, 31 },
+	{ 69, 52, 31 },
+	{ 67, 48, 36 },
+	{ 65, 52, 36 },
+	{ 64, 55, 31 },
+	{ 62, 52, 31 },
+	{ 65, 46, 34 },
+	{  0, 50, 34 },
+	{ 69, 53, 29 },
+	{  0, 50, 29 },
+	{ 72, 45, 33 },
+	{  0, 48, 33 },
+	{ 69, 52, 28 },
+	{  0, 48, 28 },
+	{ 74, 50, 38 },
+	{ 69, 53, 38 },
+	{ 65, 57, 33 },
+	{ 62, 53, 33 },
+	{ 69, 50, 38 },
+	{ 65, 57, 33 },
+	{ 62, 50, 38 },
+	{  0,  0,  0 }
+};
+
+/* Stage clear — short rising fanfare. */
+static const u8 g_MusicWin[][3] =
+{
 	{ 62, 50, 38 },
 	{ 65, 53, 38 },
 	{ 69, 57, 33 },
 	{ 74, 62, 38 },
-	{ 74, 62, 38 },
 	{ 72, 60, 36 },
 	{ 74, 62, 38 },
 	{ 69, 57, 33 },
-	{ 72, 60, 36 },
+	{ 74, 62, 38 },
+	{ 74, 69, 50 },
 	{ 74, 62, 38 },
 	{ 74, 62, 38 },
-	{ 74, 62, 38 },
-	{ 74, 57, 38 },
-	{  0, 62, 38 },
 	{  0,  0,  0 }
 };
 
-/* Konami-style game over (Knightmare / King's Valley). */
+/* Game over — descending, last notes fade. */
 static const u8 g_MusicLose[][3] =
 {
 	{ 69, 53, 38 },
-	{ 67, 52, 38 },
-	{ 65, 50, 36 },
-	{ 64, 48, 36 },
-	{ 62, 50, 33 },
-	{ 60, 48, 33 },
-	{ 57, 45, 29 },
-	{ 53, 41, 29 },
-	{ 53, 41, 33 },
-	{ 50, 41, 33 },
-	{ 50, 38, 29 },
-	{ 48, 36, 29 },
-	{ 45, 33, 29 },
-	{ 45, 33, 29 },
-	{  0, 33, 29 },
+	{ 67, 52, 36 },
+	{ 65, 50, 34 },
+	{ 62, 48, 33 },
+	{ 60, 45, 31 },
+	{ 57, 41, 29 },
+	{ 53, 38, 29 },
+	{ 50, 33, 28 },
+	{ 45, 33, 28 },
+	{ 41, 29, 28 },
+	{  0, 29, 28 },
 	{  0,  0,  0 }
 };
 
@@ -75,8 +106,7 @@ static u8 g_SfxStep;
 #define SFX_KIND_SCORE	1
 #define SFX_KIND_CLOUD	2
 #define SFX_KIND_POP	3
-#define SFX_KIND_TAXI	4
-#define SFX_KIND_CLICK	5
+#define SFX_KIND_CLICK	4
 
 static u16 PeriodOf(u8 note)
 {
@@ -88,7 +118,7 @@ static u16 PeriodOf(u8 note)
 static const u8* CurrentRow(void)
 {
 	if (g_MusicMode == MUSIC_MODE_GAME)
-		return g_MusicLoop[g_MusicStep];
+		return g_MusicStage[g_MusicStep];
 	if (g_MusicMode == MUSIC_MODE_WIN)
 		return g_MusicWin[g_MusicStep];
 	if (g_MusicMode == MUSIC_MODE_LOSE)
@@ -108,13 +138,13 @@ static u8 MusicStepFrames(void)
 		return MUSIC_WIN_STEP;
 	if (g_MusicMode == MUSIC_MODE_LOSE)
 		return MUSIC_LOSE_STEP;
-	return MUSIC_STEP_FRAMES;
+	return MUSIC_OPEN_STEP;
 }
 
 static u8 MusicPatternLen(void)
 {
 	if (g_MusicMode == MUSIC_MODE_GAME)
-		return MUSIC_LOOP_LEN;
+		return MUSIC_STAGE_LEN;
 	if (g_MusicMode == MUSIC_MODE_WIN)
 		return MUSIC_WIN_LEN;
 	if (g_MusicMode == MUSIC_MODE_LOSE)
@@ -160,13 +190,17 @@ static void ApplyRow(const u8* row)
 		if (note != g_LastNote[ch])
 		{
 			g_LastNote[ch] = note;
-			if (g_MusicMode == MUSIC_MODE_GAME)
-				g_ChanVol[ch] = (ch == 0) ? 11 : ((ch == 1) ? 8 : 10);
-			else
-				g_ChanVol[ch] = (ch == 0) ? 13 : ((ch == 1) ? 10 : 12);
 			PSG_SetTone(ch, period);
 		}
+		else if (g_MusicMode == MUSIC_MODE_OPENING)
+			continue;
 
+		if (g_MusicMode == MUSIC_MODE_GAME)
+			g_ChanVol[ch] = (ch == 0) ? 12 : ((ch == 1) ? 7 : 11);
+		else if (g_MusicMode == MUSIC_MODE_OPENING)
+			g_ChanVol[ch] = (ch == 0) ? 13 : ((ch == 1) ? 7 : 11);
+		else
+			g_ChanVol[ch] = (ch == 0) ? 13 : ((ch == 1) ? 10 : 12);
 		PSG_SetVolume(ch, g_ChanVol[ch]);
 	}
 }
@@ -177,53 +211,36 @@ static void SfxApplyStep(void)
 
 	if (g_SfxKind == SFX_KIND_SCORE)
 	{
-		static const u16 per[] = { 226, 190, 160, 127 };
+		static const u16 per[] = { 226, 190, 160 };
 		i = g_SfxStep / 3;
-		if (i > 3)
-			i = 3;
+		if (i > 2)
+			i = 2;
 		PSG_SetTone(PSG_CHANNEL_A, per[i]);
 		PSG_SetMixer(PSG_TONE_A_ON | PSG_TONE_B_ON | PSG_TONE_C_ON);
-		PSG_SetVolume(PSG_CHANNEL_A, 12);
+		PSG_SetVolume(PSG_CHANNEL_A, (u8)(13 - i));
 		return;
 	}
 
 	if (g_SfxKind == SFX_KIND_CLOUD)
 	{
-		static const u16 per[] = { 302, 404, 539, 719 };
-		i = g_SfxStep / 2;
-		if (i > 3)
-			i = 3;
-		PSG_SetTone(PSG_CHANNEL_A, per[i]);
-		PSG_SetNoise((u8)(0x14 + (i * 2)));
-		PSG_SetMixer(PSG_TONE_A_ON | PSG_TONE_B_ON | PSG_TONE_C_ON | PSG_NOISE_A_ON);
-		PSG_SetVolume(PSG_CHANNEL_A, (u8)(12 - (i * 2)));
+		i = g_SfxStep;
+		if (i > 6)
+			i = 6;
+		PSG_SetNoise((u8)(0x08 + i));
+		PSG_SetMixer(PSG_TONE_B_ON | PSG_TONE_C_ON | PSG_NOISE_A_ON);
+		PSG_SetVolume(PSG_CHANNEL_A, (u8)(13 - i));
 		return;
 	}
 
 	if (g_SfxKind == SFX_KIND_POP)
 	{
-		static const u16 per[] = { 404, 302, 226, 190 };
+		static const u16 per[] = { 127, 160, 190, 226 };
 		i = g_SfxStep / 2;
 		if (i > 3)
 			i = 3;
 		PSG_SetTone(PSG_CHANNEL_A, per[i]);
-		if (i < 2)
-		{
-			PSG_SetNoise(0x12);
-			PSG_SetMixer(PSG_TONE_A_ON | PSG_TONE_B_ON | PSG_TONE_C_ON | PSG_NOISE_A_ON);
-		}
-		else
-			PSG_SetMixer(PSG_TONE_A_ON | PSG_TONE_B_ON | PSG_TONE_C_ON);
-		PSG_SetVolume(PSG_CHANNEL_A, 12);
-		return;
-	}
-
-	if (g_SfxKind == SFX_KIND_TAXI)
-	{
-		PSG_SetTone(PSG_CHANNEL_A, 620);
-		PSG_SetNoise(0x1E);
-		PSG_SetMixer(PSG_TONE_A_ON | PSG_TONE_B_ON | PSG_TONE_C_ON | PSG_NOISE_A_ON);
-		PSG_SetVolume(PSG_CHANNEL_A, 7);
+		PSG_SetMixer(PSG_TONE_A_ON | PSG_TONE_B_ON | PSG_TONE_C_ON);
+		PSG_SetVolume(PSG_CHANNEL_A, (u8)(12 - i));
 	}
 }
 
@@ -300,10 +317,12 @@ void Music_Tick(void)
 	{
 		for (ch = 0; ch < 3; ++ch)
 		{
-			u8 floor = (ch == 1) ? 6 : 8;
+			u8 floor = (ch == 2) ? 5 : ((ch == 1) ? 4 : 7);
 			if ((g_SfxLeft != 0) && (ch == 0))
 				continue;
-			if ((g_ChanVol[ch] > floor) && ((g_MusicFrame & 1) == 0))
+			if (g_ChanVol[ch] <= floor)
+				continue;
+			if ((g_MusicMode == MUSIC_MODE_GAME) || ((g_MusicFrame & 1) == 0))
 			{
 				g_ChanVol[ch]--;
 				PSG_SetVolume(ch, g_ChanVol[ch]);
@@ -379,17 +398,12 @@ void Sfx_Pop(void)
 
 void Sfx_Score(void)
 {
-	SfxStart(SFX_KIND_SCORE, 12);
+	SfxStart(SFX_KIND_SCORE, 9);
 }
 
 void Sfx_Cloud(void)
 {
-	SfxStart(SFX_KIND_CLOUD, 10);
-}
-
-void Sfx_Taxi(void)
-{
-	SfxStart(SFX_KIND_TAXI, 3);
+	SfxStart(SFX_KIND_CLOUD, 8);
 }
 
 void Music_Stop(void)

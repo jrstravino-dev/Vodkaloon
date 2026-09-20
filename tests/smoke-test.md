@@ -15,23 +15,25 @@ Run after a successful ROM build and with mcp-openmsx connected.
 2. `emu_control` launch `C-BIOS_MSX2_EU`.
 3. `emu_media` romInsert `E:/DEV/PROJETO-MSX/emul/rom/Vodkaloon.rom` (use forward slashes).
 4. `emu_control` reset.
-5. `emu_control` wait **8** seconds (logo, PRESENTS, then title).
-6. `screen_shot` to_file → copy/rename to `screenshots/smoke-latest.png`.
-7. `emu_vdp` screenGetMode → expect **5**.
-8. Confirm `Zelina Games`, `PRESENTS`, `VODKALOON`, then briefing; SPACE starts the demo.
-9. `emu_control` close.
+5. `emu_control` wait **4** seconds (logo still on screen).
+6. `screen_shot` → expect Zelina Games, `PRESENTS`, `2026 BY JUNIOR STRAVINO`.
+7. `emu_control` wait **8** more seconds → title (`VODKALOON`, `PUSH SPACE KEY`).
+8. `emu_vdp` screenGetMode → expect **5**.
+9. SPACE → briefing → demo; ESC returns to title.
+10. `emu_control` close.
 
 ## Pass criteria
 
 | Check | Expected |
 | --- | --- |
 | Emulator stays running | No unexpected halt |
-| Screenshot | Zelina Games + PRESENTS + VODKALOON starring Hector |
+| Opening (~8 s) | Zelina Games + PRESENTS + 2026 BY JUNIOR STRAVINO |
+| Title | VODKALOON starring Hector, SCORE/HI, PUSH SPACE KEY |
 | Screen mode | **5** |
 
 ## Last run
 
-- **Result:** PASS (2026-07-16)
+- **Result:** PASS (2026-09-20)
 - Machine: `C-BIOS_MSX2_EU`
 - Screen mode: `5`
-- Evidence: `screenshots/smoke-latest.png` / `screenshots/mcp_*_0001.png`
+- Evidence: openMSX screenshot of Zelina Games credit screen

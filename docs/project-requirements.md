@@ -31,7 +31,7 @@ Setup is handled via your AI IDE — see the install prompt in [README.md](../RE
 | MSXgl location | Cloned into `MSXgl/` |
 | Delivery format / mapper | **ROM_32K** |
 | Video | Screen 5 (starter) |
-| Audio | PSG opening fanfare + loop |
+| Audio | PSG opening (Knightmare-style 3/4 homage) + in-game loop + SFX |
 | Hardware validation | openMSX only |
 
 Do not change compiler, framework, machine, or `ROM_32K` unless the task explicitly requires it.

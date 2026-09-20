@@ -67,8 +67,12 @@ Demo jogável de um título MSX2 feito com IA, usando [MSX-AI-Dev-INIT](https://
 
 - Play in browser (MSX2 PAL): [WebMSX](https://webmsx.org/?MACHINE=MSX2E&ROM=https://github.com/jrstravino-dev/Vodkaloon/raw/main/samples/Vodkaloon.rom)
 - Local: `samples/Vodkaloon.rom` or `emul/rom/Vodkaloon.rom` in openMSX (C-BIOS MSX2, PAL)
-- Zelina Games → título (`SCORE`/`HI`) → briefing → taxi → 3 rounds
-- Setas movem Hector, SPACE solta balões; STOP pausa; ESC volta ao título
+- Opening: Zelina Games `PRESENTS` (~8 s, SPACE skips); footer `2026 BY JUNIOR STRAVINO`
+- Then title (`SCORE`/`HI`, `PUSH SPACE KEY`) → briefing → ROUND → taxi → 3 rounds on the Praça República Lituana skyline
+- HUD: score, balloons, festa, vodka bottle; GAME OVER banner; STOP pause, ESC title
+- Setas movem Hector, SPACE solta balões
+- PSG: opening homage to Knightmare (3/4, original melody), in-game ostinato, win/lose; SFX pop/score/cloud
+- Opening tables: `tools/make_opening_music.py` → `generated/zelina_music.h`
 
 
 
