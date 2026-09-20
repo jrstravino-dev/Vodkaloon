@@ -40,9 +40,9 @@ For larger projects with complex or evolving requirements, consider using [OpenS
 
 ## What you get
 
-- MSX2 project layout (provisional `ROM_32K`)
+- MSX2 project layout (`ROM_32K`)
 - [Cursor rules](https://github.com/hrubix/MSX-AI-Dev-INIT/tree/main/.cursor/rules) + MCP config template for openMSX automation
-- `helloworld` demo ROM source (`src/main.c`)
+- `Vodkaloon` ROM source (`src/main.c`)
 - Windows helper to launch openMSX from mcp-openmsx (`tools/openmsx-mcp-launcher.*`)
 
 
@@ -61,12 +61,12 @@ Point any AI coding agent at this repo. Example prompts:
 
 
 
-### About simple helloworld demo
+### About Vodkaloon
 
-- Load `emul/rom/helloworld.rom` into your favorite MSX emulator and boot
-- Prints `Hi, I'm your MSX AI Development stack`
-- Then `Press SPACE to exit`
-- SPACE → `Bye!`
+- Play in browser (MSX2 PAL): [WebMSX](https://webmsx.org/?MACHINE=MSX2E&ROM=https://github.com/jrstravino-dev/Vodkaloon/raw/main/samples/Vodkaloon.rom)
+- Local: `samples/Vodkaloon.rom` or `emul/rom/Vodkaloon.rom` in openMSX (C-BIOS MSX2, PAL)
+- Zelina Games → título (`SCORE`/`HI`) → briefing → taxi → 3 rounds
+- Setas movem Hector, SPACE solta balões; STOP pausa; ESC volta ao título
 
 
 

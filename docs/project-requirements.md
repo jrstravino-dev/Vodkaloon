@@ -25,16 +25,16 @@ Setup is handled via your AI IDE — see the install prompt in [README.md](../RE
 
 | Topic | Default |
 | --- | --- |
-| Project name | **TestGame** (template demo) |
+| Project name | **Vodkaloon** (starring Hector) |
 | Minimum MSX generation | **MSX2** |
-| Timing | **PAL** |
+| Timing | **PAL** (50 Hz) |
 | MSXgl location | Cloned into `MSXgl/` |
-| Delivery format / mapper | Provisional `ROM_32K` (TBD) |
-| Video | TBD — starter uses Screen 5 |
-| Audio | TBD |
+| Delivery format / mapper | **ROM_32K** |
+| Video | Screen 5 (starter) |
+| Audio | PSG opening fanfare + loop |
 | Hardware validation | openMSX only |
 
-Do not change compiler, framework, machine, or provisional `ROM_32K` unless the task explicitly requires it.
+Do not change compiler, framework, machine, or `ROM_32K` unless the task explicitly requires it.
 
 ---
 

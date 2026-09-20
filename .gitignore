@@ -18,9 +18,10 @@ build/*
 *.lst
 *.asm.bak
 
-# Generated assets (rebuild from assets/)
+# Generated assets (rebuild from assets/; headers needed to compile)
 generated/*
 !generated/.gitkeep
+!generated/*.h
 
 # Emulator evidence (keep dirs, ignore local runs)
 screenshots/*

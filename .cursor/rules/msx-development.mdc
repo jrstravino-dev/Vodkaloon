@@ -7,10 +7,10 @@ alwaysApply: true
 
 ## Product (locked)
 
-- Name: **TestGame** (game)
+- Name: **Vodkaloon** (game, starring Hector)
 - Machine: **MSX2** · Timing: **PAL**
 - Framework path: `MSXgl/` in this repo
-- Provisional target: `ROM_32K` until mapper/format is decided
+- Target: `ROM_32K`
 - Validation: openMSX only for now
 
 ## Stack (do not change without an explicit task)

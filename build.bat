@@ -1,4 +1,4 @@
-:: TestGame — MSXgl build (alternative layout: MSXgl/ inside this project)
+:: Vodkaloon — MSXgl build (alternative layout: MSXgl/ inside this project)
 @echo off
 setlocal
 if not defined MSXGL_PATH set MSXGL_PATH=MSXgl

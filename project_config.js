@@ -43,16 +43,16 @@
 //*****************************************************************************
 
 //-- Project name (string). Will be use for output filename
-ProjName = "helloworld";
+ProjName = "Vodkaloon";
 
 //-- List of project modules to build (array). If empty, ProjName will be added
-ProjModules = [ "src/main" ];
+ProjModules = [ "src/main", "src/music", "src/game" ];
 
 //-- Project segments base name (string). ProjName will be used if not defined
 // ProjSegments = ProjName;
 
 //-- List of library modules to build (array)
-LibModules = [ "system", "bios", "vdp", "print", "input", "memory" ];
+LibModules = [ "system", "bios", "vdp", "print", "input", "memory", "psg" ];
 
 //-- Additional sources to be compiled and linked with the project (array)
 // AddSources = [ "src/interrupts.s" ];
@@ -174,10 +174,10 @@ AddROMSignature = true;
 AppSignature = true;
 
 //-- Application company (*). Can be 2 character string or 16-bits integer (0~65535)
-AppCompany = "GL";
+AppCompany = "ZG";
 
 //-- Application ID. Can be 2 character string or 16-bits integer (0~65535)
-AppID = "T2";
+AppID = "VL";
 
 //-- Application extra data (array). Comma-separated bytes starting with data size
 // AppExtra = [];

@@ -4,7 +4,7 @@ Run after a successful ROM build and with mcp-openmsx connected.
 
 ## Preconditions
 
-- `build.bat` produces `emul\rom\TestGame.rom`
+- `build.bat` produces `emul\rom\Vodkaloon.rom`
 - mcp-openmsx enabled in Cursor (**Tools & MCP**)
 - `.cursor/mcp.json` uses `tools\openmsx-mcp-launcher.exe` on Windows
 - Machine: **C-BIOS_MSX2_EU** (PAL / 50 Hz)
@@ -13,12 +13,12 @@ Run after a successful ROM build and with mcp-openmsx connected.
 
 1. Build ROM (`build.bat`) if needed.
 2. `emu_control` launch `C-BIOS_MSX2_EU`.
-3. `emu_media` romInsert `D:/Projects/MSX-Dev-Cursor/emul/rom/TestGame.rom` (use forward slashes).
+3. `emu_media` romInsert `E:/DEV/PROJETO-MSX/emul/rom/Vodkaloon.rom` (use forward slashes).
 4. `emu_control` reset.
-5. `emu_control` wait **3** seconds (≥ 120 PAL frames).
+5. `emu_control` wait **8** seconds (logo, PRESENTS, then title).
 6. `screen_shot` to_file → copy/rename to `screenshots/smoke-latest.png`.
 7. `emu_vdp` screenGetMode → expect **5**.
-8. Confirm title text visible: `TestGame (MSX2 / PAL)` and spinner animating.
+8. Confirm `Zelina Games`, `PRESENTS`, `VODKALOON`, then briefing; SPACE starts the demo.
 9. `emu_control` close.
 
 ## Pass criteria
@@ -26,7 +26,7 @@ Run after a successful ROM build and with mcp-openmsx connected.
 | Check | Expected |
 | --- | --- |
 | Emulator stays running | No unexpected halt |
-| Screenshot | Title + MSXgl logo visible |
+| Screenshot | Zelina Games + PRESENTS + VODKALOON starring Hector |
 | Screen mode | **5** |
 
 ## Last run
